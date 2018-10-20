@@ -1,17 +1,13 @@
 import java.util.ArrayList;
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class Golbach.
  */
-
 import java.util.Scanner;
 
 public class Golbach {
 	
 	/** The prime numbers. */
 	private ArrayList<Integer> primeNumbers;
-	private Scanner input;
 
 	/**
 	 * Instantiates a new golbach.
