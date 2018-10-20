@@ -21,7 +21,7 @@ public class Golbach {
 	
 	public String findSum(int number){
 		if(isOdd(number) && number > 5 && !isDecimal(number)){
-			return process(number);
+			return findPrimes(number);
 		}
 		return "number does not match the requirements";
 	}
@@ -116,6 +116,54 @@ public class Golbach {
 			}
 		}
 		return "failed";
+	}
+	
+	public String findPrimes(int oddNumber){
+		oddNumber = oddNumber -3;
+		int smallPrime = 2;
+		int bigPrime = oddNumber;
+		int i  = 1;
+		boolean solved = true;
+		
+		while(!solved){
+			if(isPrime(bigPrime)){
+				String result = outputResults(smallPrime,bigPrime,3);
+				return result;
+			}
+			else if(primeNumbers.size() >= (i+1) ){
+				smallPrime = primeNumbers.get(i);
+				bigPrime = oddNumber - smallPrime;
+				i++;
+			}
+			else {
+				smallPrime = findNextPrime();
+				bigPrime = oddNumber - smallPrime;
+				i++;
+			}
+			
+		
+		}
+		
+		return "failed";
+	}
+	
+	public int findNextPrime(){
+		
+		int largestKnownPrime = primeNumbers.get(primeNumbers.size()-1);
+		boolean primeFound = false;
+		
+		while(!primeFound){
+			
+			if(isPrime(largestKnownPrime)){
+				primeNumbers.add(largestKnownPrime);
+				primeFound = true;
+			}
+			else{
+				largestKnownPrime++;
+			}
+		}
+		
+		return 5;
 	}
 
 	/**

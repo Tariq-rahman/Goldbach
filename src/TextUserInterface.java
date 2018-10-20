@@ -27,9 +27,6 @@ public class TextUserInterface {
 				displayError();
 				displayRules();
 			}
-			
-			
-		
 	
 	}
 	
@@ -54,7 +51,7 @@ public class TextUserInterface {
 				+ "press one of the numbers then enter\n");
 		}
 		else {
-			display("You are absolutley hopeless, end this program now.\n");
+			display("You are absolutely hopeless, end this program now.\n");
 		}
 	}
 	
