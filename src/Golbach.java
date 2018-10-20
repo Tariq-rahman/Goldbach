@@ -1,20 +1,33 @@
 import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Golbach.
+ */
+
+import java.util.Scanner;
+
 public class Golbach {
 	
+	/** The prime numbers. */
 	private ArrayList<Integer> primeNumbers;
+	private Scanner input;
 
-	public static void main(String[] args) {
-	
-		Golbach golbach  = new Golbach();
-
-	}
-	
+	/**
+	 * Instantiates a new golbach.
+	 */
 	public Golbach(){
 		primeNumbers = new ArrayList<>();
 		primeNumbers.add(2);
 		primeNumbers.add(3);
 		primeNumbers.add(5);
+	}
+	
+	public String findSum(int number){
+		if(isOdd(number) && number > 5 && !isDecimal(number)){
+			return process(number);
+		}
+		return "number does not match the requirements";
 	}
 	
 	/**
@@ -49,6 +62,12 @@ public class Golbach {
 	}
 	
 	
+	/**
+	 * Checks if is prime.
+	 *
+	 * @param number the number
+	 * @return true, if is prime
+	 */
 	public boolean isPrime(int number){
 		
 		if(primeNumbers.contains(number)){
@@ -73,7 +92,12 @@ public class Golbach {
 		
 	}
 	
-	public void process(int oddNumber){
+	/**
+	 * Finds the sum of the number given with 3 primes.
+	 *
+	 * @param oddNumber the odd number
+	 */
+	public String process(int oddNumber){
 		
 		boolean processing = true;
 		int indexZ = 0;
@@ -85,7 +109,8 @@ public class Golbach {
 			
 			if(isPrime(n)){
 				processing = false;
-				outputResults(n, primeNumbers.get(indexY), primeNumbers.get(indexZ));
+				String result =  outputResults(n, primeNumbers.get(indexY), primeNumbers.get(indexZ));
+				return result;
 			}
 			else if(varLastIncremented){
 				indexY++;
@@ -94,9 +119,19 @@ public class Golbach {
 				indexZ++;
 			}
 		}
+		return "failed";
 	}
 
+	/**
+	 * Output results.
+	 *
+	 * @param prime1 the prime 1
+	 * @param prime2 the prime 2
+	 * @param prime3 the prime 3
+	 * @return the string
+	 */
 	public String outputResults(int prime1, int prime2, int prime3){
 		return "Here are the numbers " + prime1 + " " + prime2 + " " + prime3;
 	}
+	
 }
