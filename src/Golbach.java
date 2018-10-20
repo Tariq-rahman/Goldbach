@@ -48,8 +48,8 @@ public class Golbach {
 	 * @param number the int
 	 * @return true, if is decimal
 	 */
-	public boolean isDecimal(int number){
-		if (number % 1 == 0){
+	public boolean isDecimal(double number){
+		if (number % 1.0 == 0.0){
 			return false;	
 	}
 		else {
@@ -74,13 +74,15 @@ public class Golbach {
 			return false;
 		}
 		else{
-			for(int i = 3; i < number/2; i++){
-				if (!isDecimal(number/i)){
+			for(double i = 3.0; i < number/2; i++){
+				double decimalNumber = number;
+				double decimal = number/i;
+				if (!isDecimal(decimal)){
 					//if division returns Integer then it is not prime
-					return  false;
+					return false;
+					//incrementing by 2 each loop to only divide by odd numbers
 				}
 				i++;
-				//incrementing by 2 each loop to only divide by odd numbers
 			}
 		}
 		
@@ -123,7 +125,7 @@ public class Golbach {
 		int smallPrime = 2;
 		int bigPrime = oddNumber;
 		int i  = 1;
-		boolean solved = true;
+		boolean solved = false;
 		
 		while(!solved){
 			if(isPrime(bigPrime)){
@@ -153,7 +155,7 @@ public class Golbach {
 		boolean primeFound = false;
 		
 		while(!primeFound){
-			
+			largestKnownPrime = largestKnownPrime + 2;
 			if(isPrime(largestKnownPrime)){
 				primeNumbers.add(largestKnownPrime);
 				primeFound = true;
@@ -163,7 +165,7 @@ public class Golbach {
 			}
 		}
 		
-		return 5;
+		return largestKnownPrime;
 	}
 
 	/**
