@@ -5,5 +5,17 @@ public class Golbach {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public boolean isOdd(){
+		
+	}
+	
+	public boolean isPrime(){
+		
+	}
+	
+	public void process(){
+		
+	}
 
 }
