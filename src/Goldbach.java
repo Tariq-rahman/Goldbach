@@ -129,7 +129,7 @@ public class Goldbach {
 	 * @return the string
 	 */
 	public String outputResults(int prime1, int prime2, int prime3){
-		return "Here are the numbers " + prime1 + " " + prime2 + " " + prime3;
+		return "Here are the numbers " + prime1 + " + " + prime2 + " + " + prime3;
 	}
 	
 }
