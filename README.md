@@ -8,4 +8,4 @@
 - Follow the instructions
     - If you are using a file, place the file in the numbersDirectory folder
 
-**Note** Currently the programm can only handle numbers up to 2147483648
+**Note** Currently the program can only handle numbers up to 2147483648

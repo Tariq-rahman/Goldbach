@@ -7,7 +7,6 @@ public class TextUserInterface {
 	private Scanner input;
 	private Goldbach goldbach;
 	private int dumbCount;
-	private String filePath = "numbersDirectory/numbers";
 	
 	public TextUserInterface(Goldbach golbach){
 		input = new Scanner(System.in);
@@ -24,7 +23,16 @@ public class TextUserInterface {
 		switch (userInput){
 		
 		case "1" : 
-			parseFile();
+			display("Enter the file name and make sure it is in the numbersDirectory folder");
+			try{
+				String fileName = "numbersDirectory/" + input.nextLine().trim();
+				File numberFile = new File(fileName);
+				parseFile(numberFile);
+			}
+			catch(Exception e) {
+				display("file could not be found, check your spelling or something");
+			}
+			
 			break;
 		case "2" :
 			display(rules());
@@ -81,8 +89,8 @@ public class TextUserInterface {
 		}
 	}
 	
-	public void parseFile(){
-		File numberFile = new File(filePath); 
+	public void parseFile(File numberFile){
+		//File numberFile = new File(filePath); 
 		
 		try {
 			Scanner inputStream = new Scanner(numberFile);// load file into scanner
@@ -97,6 +105,7 @@ public class TextUserInterface {
 					display(error());
 				}	
 			}
+			inputStream.close();
 		}
 		catch(FileNotFoundException e){
 			e.printStackTrace();
