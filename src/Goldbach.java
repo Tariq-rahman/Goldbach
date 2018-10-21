@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import static java.lang.Math.sqrt;;
 /**
  * The Class Goldbach.
@@ -64,10 +63,11 @@ public class Goldbach {
 			return false;
 		}
 		else{
-			double sqrtNum = Math.sqrt((double) number);
+			double decimalNumber = (double) number;
+			double sqrtNum = Math.sqrt(decimalNumber);
 			
-			for(double i = 3.0; i < sqrtNum ; i++){
-				double decimal = number/i;
+			for(double i = 3.0; i <= sqrtNum ; i++){
+				double decimal = decimalNumber/i;
 				if (!isDecimal(decimal)){
 					//if division returns Integer then it is not prime
 					return false;
@@ -83,8 +83,7 @@ public class Goldbach {
 	public String findPrimes(int oddNumber){
 		oddNumber = oddNumber -3;
 		int smallPrime = 2;
-		int bigPrime = oddNumber;
-		int i  = 1;
+		int bigPrime = oddNumber - smallPrime;
 		boolean solved = false;
 		
 		while(!solved){
@@ -95,7 +94,6 @@ public class Goldbach {
 			else {
 				smallPrime = findNextPrime(smallPrime);
 				bigPrime = oddNumber - smallPrime;
-				i++;
 			}
 		}
 		
@@ -111,12 +109,11 @@ public class Goldbach {
 		}
 		
 		while(!primeFound){
+			
 			currentPrime = currentPrime + 2;
+
 			if(isPrime(currentPrime)){
 				primeFound = true;
-			}
-			else{
-				currentPrime++;
 			}
 		}
 		

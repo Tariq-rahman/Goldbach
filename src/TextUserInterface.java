@@ -99,7 +99,7 @@ public class TextUserInterface {
 				String numberData = inputStream.nextLine();
 				try{
 					int number = Integer.parseInt(numberData);
-					display(goldbach.findSum(number));
+					display(goldbach.findSum(number) + " = " + number);
 				}
 				catch(Exception e){
 					display(error());
