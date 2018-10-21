@@ -5,13 +5,13 @@ import java.io.FileNotFoundException;
 public class TextUserInterface {
 
 	private Scanner input;
-	private Golbach golbach;
+	private Goldbach goldbach;
 	private int dumbCount;
 	private String filePath = "numbersDirectory/numbers";
 	
-	public TextUserInterface(Golbach golbach){
+	public TextUserInterface(Goldbach golbach){
 		input = new Scanner(System.in);
-		this.golbach =  golbach;
+		this.goldbach =  golbach;
 		dumbCount = 0;
 	}
 	
@@ -31,7 +31,7 @@ public class TextUserInterface {
 			String numberInput = input.nextLine().trim();
 			try{
 				int number = Integer.parseInt(numberInput);
-				display(golbach.findSum(number));
+				display(goldbach.findSum(number));
 			}
 			catch(Exception e) {
 				display(error());
@@ -91,7 +91,7 @@ public class TextUserInterface {
 				String numberData = inputStream.nextLine();
 				try{
 					int number = Integer.parseInt(numberData);
-					display(golbach.findSum(number));
+					display(goldbach.findSum(number));
 				}
 				catch(Exception e){
 					display(error());

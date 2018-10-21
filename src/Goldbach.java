@@ -3,7 +3,7 @@ import static java.lang.Math.sqrt;;
 /**
  * The Class Golbach.
  */
-public class Golbach {
+public class Goldbach {
 	
 	/** The prime numbers. */
 	private ArrayList<Integer> primeNumbers;
@@ -11,7 +11,7 @@ public class Golbach {
 	/**
 	 * Instantiates a new golbach.
 	 */
-	public Golbach(){
+	public Goldbach(){
 		primeNumbers = new ArrayList<>();
 		primeNumbers.add(2);
 		primeNumbers.add(3);
