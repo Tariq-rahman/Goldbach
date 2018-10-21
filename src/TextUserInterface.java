@@ -54,9 +54,10 @@ public class TextUserInterface {
 	
 	public String menu(){
 		String menu = "Welcome, Choose what mode you would like to use:\n" +
-				"1: Enter a single number to see find it's sum in primes\n" +
-				"2: parse through the given file to see the sum in primes for many numbers";
+				"1: parse through the given file to see the sum in primes for many numbers \n" +
+				"2: Enter a single number to see find it's sum in primes ";	
 		return menu;
+		
 	}
 	
 	public String rules(){

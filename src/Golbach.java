@@ -1,9 +1,8 @@
 import java.util.ArrayList;
+import static java.lang.Math.sqrt;;
 /**
  * The Class Golbach.
  */
-import java.util.Scanner;
-
 public class Golbach {
 	
 	/** The prime numbers. */
@@ -75,15 +74,16 @@ public class Golbach {
 			return false;
 		}
 		else{
-			for(double i = 3.0; i < number/2; i++){
-				double decimalNumber = number;
+			double sqrtNum = Math.sqrt((double) number);
+			
+			for(double i = 3.0; i < sqrtNum ; i++){
 				double decimal = number/i;
 				if (!isDecimal(decimal)){
 					//if division returns Integer then it is not prime
 					return false;
-					//incrementing by 2 each loop to only divide by odd numbers
 				}
 				i++;
+				//incrementing by 2 each loop to only divide by odd numbers
 			}
 		}
 		
