@@ -5,17 +5,10 @@ import static java.lang.Math.sqrt;;
  */
 public class Goldbach {
 	
-	/** The prime numbers. */
-	private ArrayList<Integer> primeNumbers;
-
 	/**
 	 * Instantiates a new goldbach.
 	 */
 	public Goldbach(){
-		primeNumbers = new ArrayList<>();
-		primeNumbers.add(2);
-		primeNumbers.add(3);
-		primeNumbers.add(5);
 	}
 	
 	public String findSum(int number){
@@ -66,10 +59,7 @@ public class Goldbach {
 	 */
 	public boolean isPrime(int number){
 		
-		if(primeNumbers.contains(number)){
-			return true;
-		}
-		else if(!isOdd(number)){
+		if(!isOdd(number)){
 			//no even number can be prime bar 2
 			return false;
 		}
@@ -82,43 +72,12 @@ public class Goldbach {
 					//if division returns Integer then it is not prime
 					return false;
 				}
-				i++;
-				//incrementing by 2 each loop to only divide by odd numbers
+				i++; //incrementing by 2 each loop to only divide by odd numbers
 			}
 		}
 		
 		return true;
 		
-	}
-	
-	/**
-	 * Finds the sum of the number given with 3 primes.
-	 *
-	 * @param oddNumber the odd number
-	 */
-	public String process(int oddNumber){
-		
-		boolean processing = true;
-		int indexZ = 0;
-		int indexY = 0;
-		Boolean varLastIncremented = true;
-		while(processing){
-			
-			int n = oddNumber - (primeNumbers.get(indexY) + (primeNumbers.get(indexZ)));
-			
-			if(isPrime(n)){
-				processing = false;
-				String result =  outputResults(n, primeNumbers.get(indexY), primeNumbers.get(indexZ));
-				return result;
-			}
-			else if(varLastIncremented){
-				indexY++;
-			}
-			else {
-				indexZ++;
-			}
-		}
-		return "failed";
 	}
 	
 	public String findPrimes(int oddNumber){
@@ -133,40 +92,35 @@ public class Goldbach {
 				String result = outputResults(smallPrime,bigPrime,3);
 				return result;
 			}
-			else if(primeNumbers.size() >= (i+1) ){
-				smallPrime = primeNumbers.get(i);
-				bigPrime = oddNumber - smallPrime;
-				i++;
-			}
 			else {
-				smallPrime = findNextPrime();
+				smallPrime = findNextPrime(smallPrime);
 				bigPrime = oddNumber - smallPrime;
 				i++;
 			}
-			
-		
 		}
 		
 		return "failed";
 	}
 	
-	public int findNextPrime(){
+	public int findNextPrime(int currentPrime){
 		
-		int largestKnownPrime = primeNumbers.get(primeNumbers.size()-1);
 		boolean primeFound = false;
 		
+		if(currentPrime == 2){
+			return 3;
+		}
+		
 		while(!primeFound){
-			largestKnownPrime = largestKnownPrime + 2;
-			if(isPrime(largestKnownPrime)){
-				primeNumbers.add(largestKnownPrime);
+			currentPrime = currentPrime + 2;
+			if(isPrime(currentPrime)){
 				primeFound = true;
 			}
 			else{
-				largestKnownPrime++;
+				currentPrime++;
 			}
 		}
 		
-		return largestKnownPrime;
+		return currentPrime;
 	}
 
 	/**
