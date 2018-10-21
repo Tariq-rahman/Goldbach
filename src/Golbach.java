@@ -26,6 +26,7 @@ public class Golbach {
 		return "number does not match the requirements";
 	}
 	
+	
 	/**
 	 * Checks if is odd.
 	 *
